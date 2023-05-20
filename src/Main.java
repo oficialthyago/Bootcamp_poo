@@ -1,6 +1,4 @@
-import br.com.dio.desafio.dominio.Conteudo;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -32,7 +30,49 @@ public class Main {
         System.out.println(curso2);
         System.out.println(mentoria);
 
+        Bootcamp bootcamp = new Bootcamp ();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição curso de java");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devThyago = new Dev();
+        devThyago.setNome("Thyago");
+        devThyago.inscreverBoocamp(bootcamp);
+        System.out.println("Conteudos inscritos "+ devThyago.getConteudoInscritos());
+
+        devThyago.progredir();
+        devThyago.progredir();
+
+        System.out.println("-");
+
+        System.out.println("Conteudos inscritos "+ devThyago.getConteudoInscritos());
+        System.out.println("Conteudos concluidos "+ devThyago.getConteudosConcluidos());
+        System.out.println("Voce ganhou "+ devThyago.calcularTotalXp() +" XP");
+
+
+
+        System.out.println("--------------");
+
+
+        Dev devFelps = new Dev();
+        devFelps.setNome("Felps");
+        devFelps.inscreverBoocamp(bootcamp);
+        System.out.println("Conteudos inscritos"+ devFelps.getConteudoInscritos());
+        devFelps.progredir();
+        devFelps.progredir();
+        devFelps.progredir();
+
+        System.out.println("-");
+
+        System.out.println("Conteudos inscritos "+ devFelps.getConteudoInscritos());
+        System.out.println("Conteudos concluidos "+ devFelps.getConteudosConcluidos());
+        System.out.println("Voce ganhou "+ devFelps.calcularTotalXp() +" XP");
+
 
     }
+
+
 
 }

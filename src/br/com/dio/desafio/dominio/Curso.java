@@ -15,7 +15,7 @@ public class Curso extends Conteudo{
 //-----------------------------------------------------------
 
     public int getCargaHoraria() {
-        return cargaHoraria
+        return cargaHoraria;
     };
 
     public void setCargaHoraria(int cargaHoraria) {

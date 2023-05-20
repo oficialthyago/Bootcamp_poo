@@ -3,6 +3,7 @@ package br.com.dio.desafio.dominio;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 public class Dev {
@@ -15,13 +16,28 @@ public class Dev {
 // Nesse conjuto de informações, mostra os comandos de como os dados serão mosrados.
 // ----------------------------------------------------------------------
 
-    public void increverBoocamp(Bootcamp bootcamp){
+    public void inscreverBoocamp(Bootcamp bootcamp){
+        this.conteudoInscritos.addAll(bootcamp.getConteudos());
+        bootcamp.getDevsInscritos().add(this);
     }
 
-    public void progredir (){
+    public void progredir () {
+        Optional<Conteudo> conteudo = this.conteudoInscritos.stream().findFirst();
+//---------------------------------------------------------------------------
+        if (conteudo.isPresent()) {
+            this.conteudosConcluidos.add(conteudo.get());
+            this.conteudoInscritos.remove(conteudo.get());
+        }else {
+            System.err.println("NÃO CONSTA CURSOS A QUAL VOCE ESTA INSCRITOS.");
+        }
     }
 
-    public void calcularTotalXp (){
+//----------------------------------------------------------------------------
+    public double calcularTotalXp (){
+    return this.conteudosConcluidos.stream()
+                                   .mapToDouble(conteudos -> conteudos.calcularXp())
+                                   .sum();
+
     }
 
     public String getNome() {
@@ -60,4 +76,12 @@ public class Dev {
     public int hashCode() {
         return Objects.hash(nome, conteudoInscritos, conteudosConcluidos);
     }
+//-------------------------------------------------------------
+
+
+
+
+
+ //------------------------------------------------------------
+
 }
