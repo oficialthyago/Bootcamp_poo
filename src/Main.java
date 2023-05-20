@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static br.com.dio.desafio.dominio.Curso.calcularTotalXp;
+
 public class Main {
 
  //------------------------------------------------------
@@ -65,14 +67,18 @@ public class Main {
         devFelps.progredir();
 
         System.out.println("-");
+        System.out.println("Voce ganhou "+ devFelps.calcularTotalXp() +" XP");
+
+        double totalXp = calcularTotalXp();
+        if (totalXp == 150d) {
+            System.out.println("Parabéns! Você completou o curso.");
+        }
 
         System.out.println("Conteudos inscritos "+ devFelps.getConteudoInscritos());
         System.out.println("Conteudos concluidos "+ devFelps.getConteudosConcluidos());
-        System.out.println("Voce ganhou "+ devFelps.calcularTotalXp() +" XP");
 
 
     }
-
 
 
 }

@@ -12,6 +12,7 @@ public class Dev {
     private String nome;
     private Set<Conteudo> conteudoInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+    private double TotalXp;
 
 // Nesse conjuto de informações, mostra os comandos de como os dados serão mosrados.
 // ----------------------------------------------------------------------
@@ -30,7 +31,13 @@ public class Dev {
         }else {
             System.err.println("NÃO CONSTA CURSOS A QUAL VOCE ESTA INSCRITOS.");
         }
+        double totalXp = calcularTotalXp();
+        if (totalXp == 150d) {
+            System.out.println("Parabéns! Você completou o curso.");
+        }
+
     }
+
 
 //----------------------------------------------------------------------------
     public double calcularTotalXp (){

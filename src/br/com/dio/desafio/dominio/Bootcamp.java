@@ -59,6 +59,7 @@ public class Bootcamp {
         return Objects.equals(nome, bootcamp.nome) && Objects.equals(descricao, bootcamp.descricao) && Objects.equals(dataInicial, bootcamp.dataInicial) && Objects.equals(datafinal, bootcamp.datafinal) && Objects.equals(devsInscritos, bootcamp.devsInscritos) && Objects.equals(conteudos, bootcamp.conteudos);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(nome, descricao, dataInicial, datafinal, devsInscritos, conteudos);
